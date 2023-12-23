@@ -1,13 +1,14 @@
-def read_ins(path):
+def read_ints(path):
     lst = []
     with open(path, 'r') as f:
-        while line:=f.readline():
+        while line := f.readline():
             lst.append(int(line))
 
     return lst
 
-def count_three_sum(ints, thread_name='t'):
-    print(f'started count_three_sum in {thread_name}')
+
+def count_three_sum(ints, thread_name):
+    print(f'started count_three_sum in {thread_name}\n')
 
     n = len(ints)
     counter = 0

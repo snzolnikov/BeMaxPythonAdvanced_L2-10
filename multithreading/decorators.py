@@ -8,7 +8,7 @@ def measure_time(func):
         start = time.perf_counter()
         result = func(*args, **kwargs)
         elapsed = time.perf_counter() - start
-        print(f'fExecuted {func} in {elapsed:0.2f} seconds')
+        print(f'Executed {func} in {elapsed:0.2f}')
         return result
 
     return wrap

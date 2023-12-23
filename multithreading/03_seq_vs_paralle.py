@@ -1,7 +1,7 @@
 import threading
 
-from multithreading.count_three_sum import read_ins, count_three_sum
-from multithreading.decorators import measure_time
+from decorators import measure_time
+from count_three_sum import read_ints, count_three_sum
 
 @measure_time
 def run_in_parallel(ints):
@@ -12,7 +12,6 @@ def run_in_parallel(ints):
     t2.start()
 
     print('\nGoin to wait for threads')
-
     t1.join()
     t2.join()
 
@@ -23,7 +22,7 @@ def run_sequentially(ints):
 
 if __name__ == '__main__':
     print('started main')
-    ints = read_ins("..\\\data\\1Kints.txt")
+    ints = read_ints("..\\data\\1Kints.txt")
 
     run_in_parallel(ints)
     run_sequentially(ints)
