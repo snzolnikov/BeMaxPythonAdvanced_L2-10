@@ -9,19 +9,27 @@ def div(divisor, limit):
         if x % divisor == 0:
             print(f'divisor={divisor}, x={x}')
         time.sleep(0.2)
-    print(f'ended div={divisor}', end='\n')
+    print(f'\nended div={divisor}', end='\n')
 
 
 if __name__ == '__main__':
     print('started main')
 
-    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
-        executor.submit(div, 3, 25)
-        executor.submit(div, 5, 25)
+    # with concurrent.futures.ThreadPoolExecutor(max_workers=2) as executor:
+    #     executor.submit(div, 3, 25)
+    #     executor.submit(div, 5, 25)
+    #
+    #     print('Immedietly printed out after submit')
+    #
+    # print('After with block')
 
-        print('Immedietly printed out after submit')
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+    executor.submit(div, 3, 25)
+    executor.submit(div, 5, 25)
 
-    print('After with block')
+    executor.shutdown(wait=True)
+
+    print('\nmain ended')
 
 
 
